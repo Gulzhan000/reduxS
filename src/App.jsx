@@ -1,18 +1,18 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import DataDisplay from "./components/DataDisplay";
+import "./styles/theme.css";
+import "./styles/neomorphic.css";
+import "./styles/animations.css";
 
 function App(){
   return(
     <>
-    
-    <Header/>
-    <Home />
-    <DataDisplay />
-    <Footer />
-
+      <Header/>
+      <Home />
+      <Footer />
     </>
   )
 }
-export default App
+
+export default App;

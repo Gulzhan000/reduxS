@@ -1,56 +1,711 @@
-body.light {
-    background-color: #ffffff;
-    color: #000000;
+/* Обновленные стили для главной страницы */
+
+.home {
+    min-height: 100vh;
+    background: var(--primary-dark);
+    color: var(--text-primary);
+    position: relative;
+    padding-bottom: 100px;
 }
 
-body.dark {
-    background-color: #1e1e1e;
-    color: #ffffff;
+/* Секция жанров */
+.genre-section-wrapper {
+    background: rgba(18, 18, 26, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 40px 0;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-
-
-body.light .header {
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #ccc;
+.genre-header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-body.dark .header {
-    background-color: #2d2d2d;
-    border-bottom: 1px solid #444;
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
-body.light .footer {
-    background-color: #f8f9fa;
-    border-top: 1px solid #ccc;
+.section-subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
 }
 
-body.dark .footer {
-    background-color: #2d2d2d;
-    border-top: 1px solid #444;
+.genre-scroll-container {
+    overflow-x: auto;
+    padding: 20px 0;
 }
 
-
-
-body.light .theme-btn {
-    background-color: #f0f0f0;
-    color: #333;
-    border: 1px solid #ccc;
+.genre-buttons-grid {
+    display: flex;
+    gap: 15px;
+    min-width: max-content;
+    padding: 0 20px;
 }
 
-body.dark .theme-btn {
-    background-color: #444;
-    color: #fff;
-    border: 1px solid #666;
+.genre-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 20px;
+    min-width: 180px;
+    border: none;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-
-
-
-body.light a {
-    color: #0066cc;
+.genre-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    border-color: var(--fluid-cyan);
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
 }
 
-body.dark a {
-    color: #66b3ff;
+.genre-button.active {
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(0, 206, 209, 0.2));
+    border-color: var(--fluid-cyan);
+}
+
+.genre-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.genre-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.genre-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+/* Список треков */
+.music-list-container {
+    padding: 40px 0;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.list-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.list-count {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+}
+
+.tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Карточка трека */
+.track-card {
+    background: rgba(26, 26, 38, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+.track-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 
+        0 20px 40px rgba(138, 43, 226, 0.3),
+        0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.track-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.track-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.track-card:hover .track-image img {
+    transform: scale(1.1);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.genre-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.track-content {
+    padding: 25px;
+}
+
+.track-header {
+    margin-bottom: 15px;
+}
+
+.track-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.track-artist {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.artist-icon {
+    font-size: 0.9rem;
+}
+
+.track-info {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-icon {
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+.info-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.track-stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.track-stats .stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-icon {
+    font-size: 1.1rem;
+    opacity: 0.7;
+}
+
+.stat-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Кнопка Details */
+.details-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, var(--fluid-purple), var(--fluid-cyan));
+    border: none;
+}
+
+.details-btn:hover {
+    background: linear-gradient(135deg, var(--fluid-cyan), var(--fluid-purple));
+    transform: translateY(-2px);
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+}
+
+/* Детальная страница */
+.music-detail-container {
+    min-height: 100vh;
+}
+
+.detail-hero {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px) brightness(0.5);
+    transform: scale(1.1);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(10, 10, 15, 0.8) 0%, rgba(10, 10, 15, 0.95) 100%);
+}
+
+.back-btn {
+    position: relative;
+    z-index: 10;
+    margin: 30px 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.back-icon {
+    margin-right: 8px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.track-meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.genre-badge {
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.release-date {
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+}
+
+.track-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.track-artist {
+    font-size: 1.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.artist-icon {
+    font-size: 1.5rem;
+}
+
+.track-stats-hero {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.stat-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.stat-circle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--fluid-cyan);
+    transform: scale(1.05);
+}
+
+.stat-circle .stat-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.stat-circle .stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat-circle .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Контент детальной страницы */
+.detail-content {
+    padding: 80px 0;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.detail-section {
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--fluid-cyan);
+}
+
+.title-icon {
+    font-size: 1.8rem;
+}
+
+.track-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.mood-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.mood-tag {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.mood-tag:hover {
+    background: rgba(138, 43, 226, 0.2);
+    border-color: var(--fluid-purple);
+    transform: translateY(-2px);
+}
+
+/* Similar tracks */
+.similar-tracks {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.similar-track {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.similar-track:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.similar-wave {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--fluid-purple), var(--fluid-cyan));
+    margin-right: 15px;
+    animation: pulse-glow 2s infinite;
+}
+
+.similar-info {
+    flex: 1;
+}
+
+.similar-title {
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.similar-artist {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Controls */
+.player-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.control-btn .btn-icon {
+    font-size: 1.2rem;
+}
+
+/* Features section */
+.features-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.feature-card {
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--fluid-cyan);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.feature-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--fluid-cyan);
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Loading */
+.music-loading {
+    padding: 60px 0;
+}
+
+.loading-skeletons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.track-skeleton {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.skeleton-img {
+    height: 200px;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0.05) 25%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        rgba(255, 255, 255, 0.05) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.skeleton-content {
+    padding: 25px;
+}
+
+.skeleton-title {
+    height: 24px;
+    width: 70%;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0.05) 25%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        rgba(255, 255, 255, 0.05) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.skeleton-artist {
+    height: 16px;
+    width: 50%;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0.05) 25%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        rgba(255, 255, 255, 0.05) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.skeleton-details {
+    height: 40px;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0.05) 25%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        rgba(255, 255, 255, 0.05) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 20px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .track-title {
+        font-size: 3rem;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .track-title {
+        font-size: 2.5rem;
+    }
+    
+    .tracks-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .genre-buttons-grid {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .genre-button {
+        min-width: auto;
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: left;
+        padding: 15px;
+    }
+    
+    .genre-icon {
+        margin-right: 15px;
+        margin-bottom: 0;
+    }
+    
+    .player-controls {
+        grid-template-columns: 1fr;
+    }
 }
