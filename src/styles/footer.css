@@ -1,17 +1,98 @@
 .footer {
     margin-top: 40px;
-    padding: 30px 0;
-    border-top: 1px solid #ccc;
-    text-align: center;
+    padding: 40px 0;
+    background: var(--secondary-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.footer-tagline {
+    color: var(--text-secondary);
     font-size: 14px;
 }
 
+.footer-sections {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: var(--fluid-cyan);
+}
 
 .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-link,
+.social-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover,
+.social-link:hover {
+    color: var(--text-primary);
+}
+
+.footer-bottom {
+    grid-column: 1 / -1;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.copyright {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.tech-stack {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     margin-top: 10px;
 }
 
-.footer-links a {
-    margin: 0 10px;
-    text-decoration: none;
+.tech-badge {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-sections {
+        grid-template-columns: 1fr;
+    }
 }

@@ -14,10 +14,10 @@ const Footer = () => {
     ];
 
     const socialLinks = [
-        { icon: "🎵", name: "SoundCloud", url: "#" },
-        { icon: "📱", name: "App", url: "#" },
-        { icon: "🐦", name: "Twitter", url: "#" },
-        { icon: "📷", name: "Instagram", url: "#" }
+        { name: "SoundCloud", url: "#" },
+        { name: "App", url: "#" },
+        { name: "Twitter", url: "#" },
+        { name: "Instagram", url: "#" }
     ];
 
     return (
