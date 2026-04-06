@@ -89,19 +89,19 @@ const EventsList = () => {
                                         className="edit-btn"
                                         onClick={(e) => handleEditClick(e, event)}
                                     >
-                                        ✏️ Edit
+                                        Edit
                                     </button>
                                     <button
                                         className="delete-btn"
                                         onClick={(e) => handleDeleteClick(e, event.id)}
                                     >
-                                        🗑️ Delete
+                                        Delete
                                     </button>
                                     <button
                                         className="view-btn"
                                         onClick={() => handleDetailsClick(event)}
                                     >
-                                        👁️ View
+                                        View
                                     </button>
                                 </div>
                             </div>

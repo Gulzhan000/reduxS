@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchEventsApi, fetchEventByIdApi, fetchGenresApi } from "../../api/eventsApi";
-
-// Асинхронные действия
 export const fetchEvents = createAsyncThunk(
     "events/fetchEvents",
     async (genre = null) => {
