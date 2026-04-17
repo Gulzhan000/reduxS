@@ -1,3 +1,4 @@
+// src/components/Header.jsx
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toggleTheme } from "../features/ui/uiSlice";
@@ -10,12 +11,14 @@ const Header = () => {
     const navigate = useNavigate();
     const theme = useSelector(state => state.ui.theme);
     const { isAuth, user } = useSelector(state => state.auth);
+    const { favorites } = useSelector(state => state.events);
 
     const handleLogout = () => {
         dispatch(logout());
         navigate("/");
         alert("You have been logged out");
     };
+    
     const getUserName = () => {
         if (user?.email) {
             return user.email.split('@')[0];
@@ -38,6 +41,9 @@ const Header = () => {
                         <nav className="nav">
                             <a href="/" className="nav-link-simple">Home</a>
                             <a href="/concerts" className="nav-link-simple">Concerts</a>
+                            <a href="/favorites" className="nav-link-simple">
+                                Favorites {favorites.length > 0 && `(${favorites.length})`}
+                            </a>
                             {isAuth && <a href="/my-tickets" className="nav-link-simple">My Tickets</a>}
                         </nav>
 

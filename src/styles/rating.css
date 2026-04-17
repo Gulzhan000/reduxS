@@ -1,0 +1,130 @@
+
+.rating-stars {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.star {
+    color: #4a4a5a;
+    transition: all 0.2s ease;
+}
+
+.star.filled {
+    color: #ffd700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.star:not(.readonly):hover {
+    transform: scale(1.1);
+}
+
+.rating-value {
+    margin-left: 10px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.rating-count {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-left: 5px;
+}
+
+/* src/styles/actions.css */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.action-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+}
+
+.like-btn.active {
+    background: rgba(255, 70, 70, 0.2);
+    border-color: #ff4646;
+    color: #ff4646;
+}
+
+.favorite-btn.active {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+    color: #ffd700;
+}
+
+.average-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.average-stars {
+    display: inline-flex;
+    gap: 2px;
+}
+
+.average-stars .star {
+    font-size: 16px;
+}
+
+.rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.event-rating-section {
+    margin: 12px 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+}
+
+.rating-header {
+    margin-bottom: 8px;
+}
+
+.rating-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.average-rating-mini {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--fluid-cyan);
+}
+
+.rating-count-mini {
+    color: var(--text-secondary);
+    font-size: 11px;
+}

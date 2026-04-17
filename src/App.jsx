@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Favorites from "./pages/Favorites";
 import "./styles/theme.css";
 import "./styles/neomorphic.css";
 import "./styles/animations.css";
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/concerts" element={<Home />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -1,6 +1,9 @@
+
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchEvents, setSelectedEvent, deleteEvent, setShowForm, setEditingEvent } from "../features/events/eventsSlice";
+import RatingStars from "../components/RatingStars";
+import ActionButtons from "../components/ActionButtons";
 import "../styles/neomorphic.css";
 
 const EventsList = () => {
@@ -16,13 +19,13 @@ const EventsList = () => {
     };
 
     const handleEditClick = (e, event) => {
-        e.stopPropagation(); // Предотвращаем всплытие события
+        e.stopPropagation(); 
         dispatch(setEditingEvent(event));
         dispatch(setShowForm(true));
     };
 
     const handleDeleteClick = (e, eventId) => {
-        e.stopPropagation(); // Предотвращаем всплытие события
+        e.stopPropagation(); 
         if (window.confirm("Are you sure you want to delete this event?")) {
             dispatch(deleteEvent(eventId));
         }
@@ -32,7 +35,7 @@ const EventsList = () => {
         return (
             <div className="events-loading container">
                 <div className="loading-skeletons">
-                    {[...Array(4)].map((_, i) => (
+                    {[...Array(6)].map((_, i) => (
                         <div key={i} className="event-skeleton">
                             <div className="skeleton-img skeleton"></div>
                             <div className="skeleton-content">
@@ -68,23 +71,41 @@ const EventsList = () => {
                                 <span className="price-tag">${event.price}</span>
                             </div>
 
-                            <div className="event-content">
-                                <h3 className="event-title">{event.title}</h3>
-                                <div className="event-artist">
-                                    <span>Singer:</span> {event.artist}
+                            <div className="event-content" style={{ alignItems: 'flex-start', textAlign: 'left' }}>
+                                <h3 className="event-title" style={{ textAlign: 'left', width: '100%' }}>{event.title}</h3>
+                                <div className="event-artist" style={{ textAlign: 'left', width: '100%' }}>
+                                    Singer: {event.artist}
                                 </div>
 
-                                <div className="event-details">
-                                    <div className="detail-item date-large">
+                                <div className="event-date" style={{ marginBottom: '12px', textAlign: 'left', width: '100%' }}>
+                                    <span className="date-large">
                                         Date: {new Date(event.date).toLocaleDateString('en-US', { 
                                             day: '2-digit', 
                                             month: '2-digit', 
                                             year: 'numeric' 
                                         }).replace(/\//g, '.')}
-                                    </div>
+                                    </span>
                                 </div>
 
-                                <div className="event-actions">
+                                <div className="event-rating-section" style={{ width: '100%' }}>
+                                    <div className="rating-header" style={{ textAlign: 'left' }}>
+                                        <span className="rating-label">Rate this event:</span>
+                                    </div>
+                                    <RatingStars 
+                                        eventId={event.id} 
+                                        currentRating={event.userRating}
+                                        size="small"
+                                    />
+                                    {event.averageRating > 0 && (
+                                        <div className="average-rating-mini" style={{ textAlign: 'left' }}>
+                                            <span>{event.averageRating}/5</span>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <ActionButtons event={event} />
+
+                                <div className="event-actions" style={{ width: '100%' }}>
                                     <button
                                         className="edit-btn"
                                         onClick={(e) => handleEditClick(e, event)}

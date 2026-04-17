@@ -35,7 +35,7 @@ const Home = () => {
                     </div>
                     <EventsList />
                     
-                    {/* Модальная форма для создания/редактирования */}
+                  
                     {showForm && (
                         <EventForm 
                             event={editingEvent}

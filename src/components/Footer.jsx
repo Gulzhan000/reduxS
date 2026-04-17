@@ -24,7 +24,7 @@ const Footer = () => {
         <footer className="footer neomorphic">
             <div className="container">
                 <div className="footer-content">
-                    {/* Бренд */}
+             
                     <div className="footer-brand">
                         <h3 className="footer-logo shimmer-text">VOXEL</h3>
                         <p className="footer-tagline">
@@ -32,7 +32,7 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    {/* Ссылки */}
+   
                     <div className="footer-sections">
                         <div className="footer-section">
                             <h4>Explore</h4>
@@ -66,7 +66,6 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Копирайт */}
                     <div className="footer-bottom">
                         <p className="copyright">
                             © {currentYear} Voxel Music. All sounds are liquid.

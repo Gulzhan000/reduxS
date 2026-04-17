@@ -1,4 +1,4 @@
-/* Обновленные стили для главной страницы - Концерты */
+
 
 .home {
     min-height: 100vh;
@@ -8,7 +8,6 @@
     padding-bottom: 100px;
 }
 
-/* Секция жанров - ЦЕНТРИРОВАНО */
 .genre-section-wrapper {
     background: rgba(18, 18, 26, 0.8);
     backdrop-filter: blur(10px);
@@ -67,7 +66,6 @@
     font-size: 1.3rem;
 }
 
-/* НОВЫЙ ЦЕНТРИРОВАННЫЙ КОНТЕЙНЕР ДЛЯ ЖАНРОВ */
 .genre-buttons-container {
     display: flex;
     justify-content: center;
@@ -122,7 +120,6 @@
     font-weight: 600;
 }
 
-/* Список событий - 3 карточки в ряд */
 .events-list-container {
     padding: 40px 0;
 }
@@ -232,8 +229,8 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Выравнивание всего содержимого налево */
-    text-align: left; /* Текст по левому краю */
+    align-items: flex-start; 
+    text-align: left; 
 }
 
 .event-title {
@@ -241,8 +238,8 @@
     font-weight: 700;
     margin-bottom: 5px;
     color: var(--text-primary);
-    width: 100%; /* Занимает всю ширину */
-    text-align: left; /* Текст по левому краю */
+    width: 100%; 
+    text-align: left; 
 }
 
 .event-artist {
@@ -251,8 +248,8 @@
     color: var(--text-secondary);
     font-size: 0.95rem;
     margin-bottom: 15px;
-    width: 100%; /* Занимает всю ширину */
-    text-align: left; /* Текст по левому краю */
+    width: 100%; 
+    text-align: left; 
 }
 
 
@@ -267,7 +264,6 @@
     text-align: left;
 }
 
-/* Стили для кнопок на карточках */
 .event-actions {
     display: flex;
     gap: 8px;
@@ -307,8 +303,6 @@
     border-color: var(--fluid-purple);
     transform: translateY(-2px);
 }
-
-/* Детальная страница события */
 .event-detail-container {
     min-height: 100vh;
 }

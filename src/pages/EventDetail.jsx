@@ -1,10 +1,14 @@
+
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { clearSelectedEvent } from "../features/events/eventsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { clearSelectedEvent, addRating } from "../features/events/eventsSlice";
+import RatingStars from "../components/RatingStars";
+import ActionButtons from "../components/ActionButtons";
 import "../styles/neomorphic.css";
 
 const EventDetail = ({ event }) => {
     const dispatch = useDispatch();
+    const { userRatings } = useSelector(state => state.events);
     const [ticketCount, setTicketCount] = useState(1);
 
     const handleBack = () => {
@@ -52,7 +56,15 @@ const EventDetail = ({ event }) => {
                         <h1 className="event-title shimmer-text">{event.title}</h1>
                         <h2 className="event-artist">🎤 {event.artist}</h2>
 
+                        {/* Рейтинг на детальной странице */}
                         <div className="event-stats-hero">
+                            <div className="stat-circle">
+                                <div className="stat-label">RATING</div>
+                                <div className="stat-value">{event.averageRating || 0}/5</div>
+                                <div className="stat-label" style={{ fontSize: '12px' }}>
+                                    ({event.ratingsCount || 0} votes)
+                                </div>
+                            </div>
                             <div className="stat-circle">
                                 <div className="stat-label">TIME</div>
                                 <div className="stat-value">{event.time}</div>
@@ -83,6 +95,20 @@ const EventDetail = ({ event }) => {
                         </div>
 
                         <div className="detail-section neomorphic">
+                            <h3 className="section-title">Rate This Event</h3>
+                            <RatingStars 
+                                eventId={event.id} 
+                                currentRating={event.userRating}
+                                size="large"
+                            />
+                            <p className="rating-hint" style={{ marginTop: '10px', color: 'var(--text-secondary)', fontSize: '14px' }}>
+                                {event.userRating ? 
+                                    `Your rating: ${event.userRating}/5 ⭐` : 
+                                    "Click on stars to rate this event!"}
+                            </p>
+                        </div>
+
+                        <div className="detail-section neomorphic">
                             <h3 className="section-title">Location & Venue</h3>
                             <div className="venue-info">
                                 <p><strong>{event.venue}</strong></p>
@@ -96,6 +122,8 @@ const EventDetail = ({ event }) => {
                         <div className="detail-section neomorphic booking-section">
                             <h3 className="section-title">Book Tickets</h3>
                             
+                            <ActionButtons event={event} />
+
                             <div className="price-box">
                                 <span>Price per ticket</span>
                                 <span className="price-value">${event.price}</span>

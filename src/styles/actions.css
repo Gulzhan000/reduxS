@@ -1,0 +1,66 @@
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 500;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.action-btn:active {
+    transform: translateY(0);
+}
+
+/* Лайк кнопка */
+.like-btn.active {
+    background: rgba(255, 70, 70, 0.2);
+    border-color: #ff4646;
+    color: #ff4646;
+}
+
+.like-btn.active:hover {
+    background: rgba(255, 70, 70, 0.3);
+    box-shadow: 0 0 10px rgba(255, 70, 70, 0.3);
+}
+
+.like-btn:not(.active):hover {
+    background: rgba(255, 70, 70, 0.1);
+    border-color: #ff4646;
+}
+
+/* Избранное кнопка */
+.favorite-btn.active {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+    color: #ffd700;
+}
+
+.favorite-btn.active:hover {
+    background: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.favorite-btn:not(.active):hover {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: #ffd700;
+}

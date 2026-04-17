@@ -44,13 +44,12 @@ const GenreButtons = () => {
                     </div>
                 </div>
 
-                {/* Кнопка Create по центру */}
                 <div className="create-button-container">
                     <button 
                         className="create-button liquid-button pulse-glow"
                         onClick={handleCreateClick}
                     >
-                        <span className="create-icon">➕</span>
+                    
                         <span className="create-text">Create New Event</span>
                     </button>
                 </div>
